@@ -11,9 +11,9 @@ router.get('/', (req, res) => {
 
 router.post('/new', (req, res) => {
     //Se extraen los datos
-    let { titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionsRadios } = req.body;
+    let { titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios } = req.body;
     //Se llama a una función (addPost) para agregar una nueva publicación
-    Service.addPost({ titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionsRadios });
+    Service.addPost({ titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios });
     //Se renderiza a savedBook
     res.render('savedBook');
 });
@@ -25,7 +25,7 @@ router.get('/post/:id', (req, res) => {
 
 router.get('/post/:id/delete', (req, res) => {
     Service.deletePost(req.params.id);
-    res.render('deletedBook');
+    res.render('deleteBook');
 });
 
 export default router;
