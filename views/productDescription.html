@@ -15,16 +15,16 @@
     <!-------------------------------------------------------------------------------------------->
     <!--MENU-->
     <div class="background">
-        <a href="Homepage.html" class="menu">INICIO</a>
-        <a href="Homepage.html" class="menu">CATÁLOGO</a>
-        <a href="Homepage.html" class="menu">OFERTAS</a>
-        <a href="Homepage.html" class="menu">CONTACTO</a>
+        <a href="/" class="menu">INICIO</a>
+        <a href="/" class="menu">CATÁLOGO</a>
+        <a href="/" class="menu">OFERTAS</a>
+        <a href="/" class="menu">CONTACTO</a>
     </div>
 
     <!-------------------------------------------------------------------------------------------->
     <!--LOGO-->
     <div class="logo">
-        <a href="Homepage.html">
+        <a href="/">
             <img src="Photos/ImageLogo.jpg" width="85" height="100" alt="I-CHEGA">
         </a>
     </div>
@@ -70,28 +70,16 @@
                     <h2 class="big-title">{{post.titulo}}</h2>
                     <!--Price-->
                     <div class="price-book">
-                        {{post.precio}} <span class="price-discount">16,50€</span>
-                        <span class="price-web">-5% de dto. exclusivo web</span>
+                        {{post.precio}} 
                     </div>
                     <!--Genres-->
                     <h4>Género:</h4>
-                    <div class="genres">{{post.generos}}</div>
+                    <div class="genres">{{post.genero}}</div>
                     
                     <!--Synopsis-->
                     <h4>Sinopsis:</h4>
                     <div class="book-sinopsis">
-                        <p>
-                            Dos chicos se conocen. Se hacen amigos. Se enamoran. ¿Por qué nos empeñamos en
-                            hacer complicadas las emociones más sencillas?
-                        </p>
-                        <p>
-                            Esta historia de amor entre dos chicos, uno de ellos declaradamente homosexual
-                            y el otro en vías de autodescubrimiento, nos recordará que hay primeros amores
-                            frágiles como el cristal y memorables como el diamante. Con los titubeos propios
-                            de cualquier amor adolescente, Heartstopper responde a la manera de sentir de
-                            los jóvenes reales, con una visión abierta, natural y sensible sobre el amor y
-                            la identidad sexual, sin perder nunca la delicadeza y la emoción.
-                        </p>
+                        {{post.sinopsis}}
                     </div>
                 </div>
             </table>
@@ -104,8 +92,8 @@
         <!--BUTTONS-->
         <div>
             <a class="newButton">Editar</a>
-            <a class="newButton">Borrar</a>
-            <a class="newButton" href="Homepage.html">Ver todos los elementos</a>
+            <a class="newButton" href="/post/{{post.id}}/delete">Borrar</a>
+            <a class="newButton" href="/">Ver todos los elementos</a>
         </div>
 
         <!-------------------------------------------------------------------------------------------->
@@ -127,19 +115,19 @@
                             <table>
                                 <tr>
                                     <th>Editorial:</th>
-                                    <td>Planeta</td>
+                                    <td>{{post.editorial}}</td>
                                 </tr>
                                 <tr>
                                     <th>Idioma:</th>
-                                    <td>Castellano</td>
+                                    <td>{{post.idioma}}</td>
                                 </tr>
                                 <tr>
                                     <th>Tapa:</th>
-                                    <td>Blanda</td>
+                                    <td>{{post.optionRadios}}</td>
                                 </tr>
                                 <tr>
                                     <th>ISBN:</th>
-                                    <td>9788408224228</td>
+                                    <td>{{post.isbn}}</td>
                                 </tr>
                             </table>
                         </td>

@@ -143,3 +143,11 @@ footer {
     padding: 20px;
     color: white;
 }
+
+.warning {
+    width:200px;
+    text-align: center;
+    margin: auto;
+    color: #e811ab4c;
+    padding-top: 20px;
+}
