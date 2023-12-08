@@ -11,60 +11,32 @@ router.get('/', (req, res) => {
 
 router.post('/new', (req, res) => {
     //Se extraen los datos
+    let post = Service.getPost(req.params.id);
     let { titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios } = req.body;
+    let notCorrectTitulo = ""
+    let notCorrectAutor = ""
+    let notCorrectGenero = "..."
+    /*let notCorrectSinopsis = ""
+    let notCorrectIsbn = ""
+    let notCorrectPrecio = ""
+    let notCorrectEditorial = ""
+    let notCorrectIdioma = ""
+    let notCorrectImagen = ""
+    let notCorrectOptionRadios = ""*/
     //Se llama a una función (addPost) para agregar una nueva publicación
     Service.addPost({ titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios });
 
-    form.addEventListener("submit", e =>{
-        let warnings = ""
-        let entrar = false
-        if(titulo.value.length < 1){
-            warnings += 'Debes poner un titulo'
-            entrar = true
-        }
-        if(autor.value.length < 1){
-            warnings += 'Debes poner un autor'
-            entrar = true
-        }
-        if(genero.value = "..."){
-            warnings += 'Debes poner un genero'
-            entrar = true
-        }
-        if(sinopsis.value.length < 1){
-            warnings += 'Debes poner un sinopsis'
-            entrar = true
-        }
-        if(isbn.value.length < 1){
-            warnings += 'Debes poner un isbn'
-            entrar = true
-        }
-        if(precio.value.length < 1){
-            warnings += 'Debes poner un precio'
-            entrar = true
-        }
-        if(editorial.value.length < 1){
-            warnings += 'Debes poner un editorial'
-            entrar = true
-        }
-        if(idioma.value = "..."){
-            warnings += 'Debes poner un idioma'
-            entrar = true
-        }
-        if(imagen.value.length < 1){
-            warnings += 'Debes poner un imagen'
-            entrar = true
-        }
-        if(entrar) {
-            parrafo.innerHTML = warnings
-        }
-        else {
-            parrafo.innerHTML = "Enviado"
-        }
-        
-    })
     //Se renderiza a savedBook
-    res.render('savedBook');
+    res.render('savedBook',  {
+        posts: Service.getPosts(),
+    success: req.body.titulo != notCorrectTitulo,
+    success2: req.body.autor != notCorrectAutor,
+    success3: req.body.genero != notCorrectGenero,
+    bien: (req.body.titulo != notCorrectTitulo) && (req.body.autor != notCorrectAutor) && (req.body.genero != notCorrectGenero),
 });
+});
+
+
 
 router.get('/post/:id', (req, res) => {
     let post = Service.getPost(req.params.id);

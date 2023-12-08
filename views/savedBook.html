@@ -1,21 +1,47 @@
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>I-CHEGA</title>
-		<link rel="icon" href="please.png"> <!--For icon on webpage-->
-		<!--LINK TO BOOTSTRAP STYLE-->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-		  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-		<!--LINK TO BOOTSTRAP ICONS-->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-		<link rel="stylesheet" href="public/FormularioStyle.css">
-	  </head>
 
 <body>
-	<script src="forms.js"></script>
-	<p class="warning" id="warning"></p>
+
+
+
+
+
+
+	{{^success}} <!--Title-->
+	Pon el titulo
+	{{/success}}
+
+
+	{{^success2}}
+	Pon el autor
+	{{/success2}}
+
+	{{^success3}}
+	Pon el genero
+	{{/success3}}
+	
+
+	{{#bien}}
+	El libro se ha guardado correctamente
 	<a href="/">Back</a>
+	{{/bien}}
+
+	{{^bien}}
+	<form action="">
+	 <a class="newButton" href="/post/{{post.id}}/delete">Borrar</a>
+	</form>
+	<table>
+		<tr>
+			<th>Editorial:</th>
+			<td>{{post.editorial}}</td>
+		</tr>
+		<tr>
+			<th>Idioma:</th>
+			<td>{{post.idioma}}</td>
+	</table>
+	{{/bien}}
+	
+
 </body>
 
 </html>
