@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: helvetica;
+    text-align: center; 
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*MENU ("Inicio, Contacto, Catálogo")*/
+nav {
+    background-color: rgba(30, 122, 93, 0.678);;
+    color: white;
+    text-align: center;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 7.5px;
+    display: inline-block;
+    font-family: helvetica; 
+    font-size: 17px;
+    line-height: 25px; /*Controls the line height*/ 
+    cursor: pointer; /*Changes the appearance of the cursor when you hover over an element*/
+}
+
+nav a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*LOGO*/
+.logo{
+    float: left; /*The logo is placed on the left and the element that follows it snaps to the right side of the logo*/
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*LITERARY GENRES*/
+.literaryGenres {
+    font-family: helvetica; 
+    font-size: 17px;
+    background-color: white;
+    border: none; 
+    border-radius: 5px; /*Customize the level of corner roundness*/ 
+    padding: 3px 3px; /*The first value is applied to the top and bottom margin and the second is applied to the left and right margin*/
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.literaryGenres:hover {
+    background-color: rgba(30, 122, 93, 0.678);
+    color: white;
+}
+
+/*--------------------------------------------------------------------------------*/
+/*SEARCHER*/
+.buscador {
+    font-family: helvetica; 
+    text-align: left;
+    border: 1px solid #000;  
+    border-radius: 5px;     
+    padding: 10px;     
+    max-width: 600px; 
+    max-height: 50px;
+    margin: auto;
+}
+
+/*Search*/
+.botonLupa {  
+    font-size: 13px;
+    background-color: rgba(12, 131, 182, 0.395);  
+    border: 1px solid black; 
+    border-radius: 5px;      
+    margin-right: 10px; 
+}
+
+.botonLupa:hover {
+    background-color: rgba(30, 122, 93, 0.678);
+    color: white;
+}
+
+div > input {  /*Puts border transparent*/
+    border: none;   
+}
+
+/*--------------------------------------------------------------------------------*/
+/*HORIZONTAL LINE*/
+hr { /*For the horizontal line of separation*/
+    border: 1px solid #4d4b4b4c;
+    width: 100%; /*100% width of container*/
+}
+
+/*--------------------------------------------------------------------------------*/
+/*RECTANGLE OF FORMS*/
+.forms {
+    text-align: left;
+    background-color: rgba(30, 122, 93, 0.678); 
+    padding: 50px 55px; 
+    border-radius: 20px; 
+    max-width: 600px; 
+    min-width: 300px;
+    width: 100%; 
+    margin: 50px;
+    box-shadow: 0 0 20px rgba(10, 10, 10, 0.8);
+    margin: 0 auto; /*Center element horizontaly*/
+    margin-bottom:40px;
+    margin-top:30px;
+}
+
+input, textarea, select {
+    margin-bottom:20px;
+}
+
+.space{
+    margin-right: 50px;
+}
+
+.newButton {
+    font-family: helvetica;
+    font-size: 15px;
+    padding: 10px 15px;
+    text-decoration: none;
+    border: 2px solid #0000004a;
+    color: black;
+    background-color: rgba(12, 131, 182, 0.395);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.newButton:hover {
+    background-color: rgba(30, 122, 93, 0.678);
+    color: white;
+}
+
+footer {
+    text-align: center;
+    margin-top: 0px;
+    background-color: #000;
+    padding: 20px;
+    color: white;
+}
