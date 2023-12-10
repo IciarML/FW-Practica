@@ -1,38 +1,84 @@
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!--To make the page fit to the screen width of the customer-->
-		<title>I-CHEGA</title>
-		<link type="text/css" rel="stylesheet" href="css/HomepageStyle.css">
-		<link rel="icon" href="Photos/please.png"> <!--For icon on webpage-->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	</head>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>I-CHEGA</title>
+	<link rel="icon" href="please.png"> <!--For icon on webpage-->
+	<!--LINK TO BOOTSTRAP STYLE-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+		rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+		crossorigin="anonymous">
+	<!--LINK TO BOOTSTRAP ICONS-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="css/FormularioStyle.css">
+</head>
+
 <body>
+	<!-------------------------------------------------------------------------------------------->
+	<!--MENU-->
+	<nav>
+		<a href="/">INICIO</a>
+		<a href="/">CATÁLOGO</a>
+		<a href="/">OFERTAS</a>
+		<a href="/">CONTACTO</a>
+	</nav>
+
+	<!-------------------------------------------------------------------------------------------->
+	<!--LOGO-->
+	<div class="logo">
+		<a href="/">
+			<img src="Photos/ImageLogo.jpg" width="85" height="100" alt="I-CHEGA">
+		</a>
+	</div>
+
+	<!-------------------------------------------------------------------------------------------->
+	<!--LITERARY GENRES-->
+	<form>
+		<button class="literaryGenres">Autoayuda</button>
+		<button class="literaryGenres">Biografía</button>
+		<button class="literaryGenres">Cómic</button>
+		<button class="literaryGenres">Fantasía</button>
+		<button class="literaryGenres">Ficción</button>
+		<button class="literaryGenres">Historia</button>
+		<button class="literaryGenres">Misterio</button>
+		<button class="literaryGenres">Poesía</button>
+		<button class="literaryGenres">Romance</button>
+	</form>
+
+	<!-------------------------------------------------------------------------------------------->
+	<!--SEARCHER-->
+	<div class="buscador">
+		<button class="botonLupa">Buscar</button>
+		<input type="text" placeholder="Busca por título, ISBN...">
+		<!--<type> defines a text field-->
+		<!--<placeholder> is used to provide a hint of what the user is expected to enter in that space-->
+	</div>
+
+	<hr> <!--HORIZONTAL LINE-->
+
+	<!-------------------------------------------------------------------------------------------->
 	{{^success}} <!--Title-->
-		<p class="error-alert">¡Introduzca el titulo!</p>
+	<h4 style="color : red">¡Introduzca el título!</h4>
 	{{/success}}
-
 	{{^success2}}
-		<p class="error-alert">¡Introduzca el autor!</p> 
+	<h4 style="color : red">¡Introduzca el autor!</h4>
 	{{/success2}}
-
 	{{^success3}}
-		<p class="error-alert">¡Introduzca el precio!</p> 
+	<h4 style="color : red">¡Introduzca el precio!</h4>
 	{{/success3}}
-	
 
-	{{#bien}}
-		<p class="success-alert">¡El libro se ha guardado correctamente!</p>
-		<a class="newButton" href="/">Página principal</a>
+	{{#bien}}	
+	<h4 style="color : green">¡El libro se ha guardado correctamente!</h4>
+	<br>
+	<a class="newButton" href="/">Página principal</a>
 	{{/bien}}
-
 	{{^bien}}
-		<a class="newButton" href="Formulario">Atrás</a> 
-		<a class="newButton" href="/">Página principal</a>
+	<br>
+	<a class="newButton" href="Formulario">Atrás</a>
+	<a class="newButton" href="/">Página principal</a>
 	{{/bien}}
-	
+
 </body>
 
 </html>

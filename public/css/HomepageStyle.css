@@ -373,20 +373,15 @@ footer {
 
 /*------------------------------------------------------------------------------------------*/
 /*ALERTS*/
-.error-alert{
-    font-size: 20px;
-    font-weight: bold;
-    color: rgb(142, 2, 2);
-    background-color: #cc041f3a; 
-    border:1px solid #fa131e4a;
-    max-width: 20%;
-}
-
 .success-alert{
+    text-align: center; 
     font-size: 20px;
     font-weight: bold;
     color: rgba(1, 71, 101, 0.997);
     background-color: rgba(30, 122, 93, 0.678);
-    border:1px solid rgba(12, 131, 182, 0.395);
-    max-width: 20%;
+    border: 1px solid rgba(12, 131, 182, 0.395);
+    border-radius: 5px;
+    max-width: 600px;
+    padding: 7px 7px; 
+    margin: 30px auto;
 }
