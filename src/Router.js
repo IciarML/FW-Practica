@@ -64,5 +64,4 @@ router.get('/post/:id/modify', (req, res) => {
     res.render('Formulario', {post});
  }); 
 
- 
 export default router;

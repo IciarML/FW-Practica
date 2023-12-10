@@ -56,5 +56,5 @@ export function getPost(id){
       )
       alert(JSON.stringify(data))
     })
-}*/
-
+}
+*/
