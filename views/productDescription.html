@@ -139,17 +139,20 @@
         <!-------------------------------------------------------------------------------------------->
         <!--VALORATIONS-->
         <h4><u>Valoraciones:</u></h4>
+        {{#post.valoraciones}}
         <div class="opinion">             
-            <h4>{{post.nombre}}</h4>
-            <p>{{post.comentario}}</p>
-            <p>{{post.estrellas}} ⭐</p>             
+            <h4>{{nombre}}</h4>
+            <p>{{comentario}}</p>
+            <p>{{estrellas}} ⭐</p>             
         </div>   
+        {{/post.valoraciones}}
+
     </main>
 
     <!-------------------------------------------------------------------------------------------->
     <!--REVIEWS-->
     <div class="container">
-        <form id="contact" method="post" action="nuevo">
+        <form id="contact" method="post" action="/newValoracion/{{post.id}}">
             <h2>Deja tu comentario:</h2>
             <fieldset>
                 <input placeholder="Nombre" type="text" name='nombre'>

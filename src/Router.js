@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
 router.post('/new', (req, res) => {
     //Se extraen los datos
     let { titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios } = req.body;
+    let valoraciones = [];
     let notCorrectTitulo = ""
     let notCorrectAutor = ""
     let notCorrectPrecio = ""
@@ -35,20 +36,17 @@ router.post('/new', (req, res) => {
             bien: (req.body.titulo != notCorrectTitulo) && (req.body.autor != notCorrectAutor) && (req.body.precio != notCorrectPrecio),
         });
         //Se llama a una función (addPost) para agregar una nueva publicación
-        Service.addPost({ titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios });
+       let post = Service.getPost(Service.addPost({ titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios, valoraciones }));
     };
 });
 
-router.post('/nuevo', (req, res) => {
-    //Se extraen los datos
-    let { nombre, comentario, estrellas } = req.body;    
-    //Se renderiza a savedBook
-    res.render('productDescription', {
-        posts: Service.getPosts(),
-        //Se llama a una función (addPost) para agregar una nueva publicación
-    });
-    Service.addPost({ nombre, comentario, estrellas });
- 
+
+router.post("/newValoracion/:id", (req, res) => {
+    let { nombre, comentario, estrellas } = req.body;
+    let newValoracion = ({ nombre, comentario, estrellas });
+    Service.addValoracion(req.params.id, newValoracion)
+    let post = Service.getPost(req.params.id);
+    res.render("productDescription", { post });
 });
 
 //Ruta de la pagina detalle
@@ -72,7 +70,7 @@ router.get('/formulario', (req, res) => {
 router.get('/post/:id/modify', (req, res) => {
     let { titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios } = req.body;
     let post = Service.getPost(req.params.id);
-    res.render('Formulario', { post } 
+    res.render('Formulario', { post }
         /*posts: Service.getPosts(),
         nuevoTitulo: req.body.titulo,
         succesnuevoAutor: req.body.autor,
