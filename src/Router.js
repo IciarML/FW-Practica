@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
 
 router.post('/new', (req, res) => {
     //Se extraen los datos
-    let post = Service.getPost(req.params.id);
     let { titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios } = req.body;
     let notCorrectTitulo = ""
     let notCorrectAutor = ""
@@ -59,8 +58,14 @@ router.get('/formulario', (req, res) => {
 
 //Editar libro
 router.get('/post/:id/modify', (req, res) => {
-    let post = Service.getPost(req.params.id);
-    res.render('Formulario', { post });
+    let { titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios } = req.body;
+    res.render('Formulario', { 
+        posts: Service.getPosts(),
+        nuevoTitulo: req.body.titulo,
+        succesnuevoAutor: req.body.autor,
+        nuevoGenero: req.body.precio,
+    });
+    //Service.addPost({ titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios });
 });
 
 export default router;
