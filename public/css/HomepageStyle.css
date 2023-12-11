@@ -285,18 +285,11 @@ li {
 /*VALORATIONS*/
 .opinion {
     text-align: center; 
-    background-color: white;
+    background-color: #95919193;
     border: 1px solid #0000004a;      
     padding: 7px 7px; 
     max-width: 600px;
 	margin: 10px auto;
-}
-
-.opinion img { /*Style for make images round*/
-    padding: 7px 7px; 
-    width: 60px; 
-    height: 50px; 
-    border-radius: 50%;
 }
 
 /*--------------------------------------------------------------------------------*/

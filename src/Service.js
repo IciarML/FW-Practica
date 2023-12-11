@@ -2,7 +2,7 @@ const posts = new Map();
 let nextId = 0;
 
 addPost({
-        imagen: '/Photos/Image1.jpg', titulo: "HARRY POTTER COLECCIÓN COMPLETA", autor: "J.K. Rowling", precio: "80.68",
+        imagen: '/Photos/Imagen1.png', titulo: "HARRY POTTER COLECCIÓN COMPLETA", autor: "J.K. Rowling", precio: "80.68",
         genero: "Fantasía",
         sinopsis: "Este estuche contiene las novelas: Harry Potter y la piedra filosofal, Harry Potter y la cámara secreta, Harry Potter y el prisionero de Azkaban, Harry Potter y el cáliz de fuego, Harry Potter y la Orden del Fénix, Harry Potter y el misterio del príncipe, Harry Potter y las reliquias de la muerte.",
         isbn: "9788418173196", editorial: "SALAMANDRA", idioma: "Castellano", optionRadios: "Tapa blanda",
@@ -197,3 +197,20 @@ export function getPosts() {
 export function getPost(id) {
         return posts.get(id);
 }
+
+export function editPost(id, { titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios }) {
+        const postsToUpdate = getPost(id);
+        postsToUpdate.titulo = titulo !== undefined ? titulo : postsToUpdate.titulo;
+        postsToUpdate.autor = autor !== undefined ? autor : postsToUpdate.autor;
+        postsToUpdate.genero = genero !== undefined ? genero : postsToUpdate.genero;
+        postsToUpdate.sinopsis = sinopsis !== undefined ? sinopsis : postsToUpdate.sinopsis;
+        postsToUpdate.isbn = isbn !== undefined ? isbn : postsToUpdate.isbn;
+        postsToUpdate.precio = precio !== undefined ? precio : postsToUpdate.precio;
+        postsToUpdate.editorial = editorial !== undefined ? editorial : postsToUpdate.editorial;
+        postsToUpdate.idioma = idioma !== undefined ? idioma : postsToUpdate.idioma;
+        postsToUpdate.imagen = imagen !== undefined ? imagen : postsToUpdate.imagen;
+        postsToUpdate.optionRadios = optionRadios !== undefined ? optionRadios : postsToUpdate.optionRadios;
+        posts.set(id, postsToUpdate);
+}
+
+
