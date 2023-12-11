@@ -39,6 +39,18 @@ router.post('/new', (req, res) => {
     };
 });
 
+router.post('/nuevo', (req, res) => {
+    //Se extraen los datos
+    let { nombre, comentario, estrellas } = req.body;    
+    //Se renderiza a savedBook
+    res.render('productDescription', {
+        posts: Service.getPosts(),
+        //Se llama a una función (addPost) para agregar una nueva publicación
+    });
+    Service.addPost({ nombre, comentario, estrellas });
+ 
+});
+
 //Ruta de la pagina detalle
 router.get('/post/:id', (req, res) => {
     let post = Service.getPost(req.params.id);
@@ -59,13 +71,14 @@ router.get('/formulario', (req, res) => {
 //Editar libro
 router.get('/post/:id/modify', (req, res) => {
     let { titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios } = req.body;
-    res.render('Formulario', { 
-        posts: Service.getPosts(),
+    let post = Service.getPost(req.params.id);
+    res.render('Formulario', { post } 
+        /*posts: Service.getPosts(),
         nuevoTitulo: req.body.titulo,
         succesnuevoAutor: req.body.autor,
         nuevoGenero: req.body.precio,
-    });
-    //Service.addPost({ titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios });
+    }*/);
+    //Service.addPost({ titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios });
 });
 
 export default router;

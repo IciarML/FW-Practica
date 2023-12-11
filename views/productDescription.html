@@ -139,29 +139,29 @@
         <!-------------------------------------------------------------------------------------------->
         <!--VALORATIONS-->
         <h4><u>Valoraciones:</u></h4>
-        <div class="opinion">            
+        <div class="opinion">             
             <h4>{{post.nombre}}</h4>
             <p>{{post.comentario}}</p>
-            <p>{{post.estrellas}} ⭐</p>        
-        </div>
+            <p>{{post.estrellas}} ⭐</p>             
+        </div>   
     </main>
 
     <!-------------------------------------------------------------------------------------------->
     <!--REVIEWS-->
     <div class="container">
-        <form id="contact" method="post">
+        <form id="contact" method="post" action="nuevo">
             <h2>Deja tu comentario:</h2>
             <fieldset>
                 <input placeholder="Nombre" type="text" name='nombre'>
             </fieldset>
             <fieldset>
-                <textarea placeholder="Escribe aquí tu comentario...." name='comentario'></textarea>
+                <textarea placeholder="Escribe aquí tu comentario..." name='comentario'></textarea>
             </fieldset>
             <fieldset>
                 <input placeholder="0/5 ⭐" type="text" name='estrellas'>
             </fieldset>
             <div>
-                <button type="submit" class="newButton" href="enviarValoracion">Guardar</button>
+                <button type="submit" class="newButton">Guardar</button>
             </div>
         </form>
     </div>
