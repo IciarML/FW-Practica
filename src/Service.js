@@ -1,6 +1,7 @@
 const posts = new Map();
-let nextId = 0;
+let id = 0;
 
+export function loadSampleData() {
 addPost({
         imagen: '/Photos/Imagen1.png', titulo: "HARRY POTTER COLECCIÓN COMPLETA", autor: "J.K. Rowling", precio: "80.68",
         genero: "Fantasía",
@@ -173,11 +174,14 @@ addPost({
                 }
         ]
 });
+}
+
+loadSampleData();
 
 export function addPost(post) {
-        let id = nextId++;
-        post.id = id.toString();
-        posts.set(post.id, post);
+        id++;
+        post.id = id;
+        posts.set(id, post);
 }
 
 export function addValoracion(id, { nombre, comentario, estrellas }) {
@@ -192,6 +196,15 @@ export function deletePost(id) {
 
 export function getPosts() {
         return [...posts.values()];
+}
+
+export function getPostss(from, to) {
+        let values = [...posts.values()];
+        if (from !== undefined) {
+            return values.slice(from, to);
+        } else {
+            return values;
+        }
 }
 
 export function getPost(id) {

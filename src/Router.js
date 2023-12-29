@@ -1,11 +1,13 @@
 import express from 'express';
 import * as Service from './Service.js';
+import { getPostss } from './Service.js';
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
+    const posts = getPostss(0,4);
     res.render('Homepage', {
-        posts: Service.getPosts()
+        posts: posts
     });
 });
 
@@ -79,5 +81,17 @@ router.get('/formulario', (req, res) => {
     res.render('Formulario');
 });
 
+
+router.get('/books', (req, res) => {
+
+    const from = parseInt(req.query.from);
+    const to = parseInt(req.query.to);
+
+    const posts = getPostss(from,to);
+
+    res.render('books', {
+        posts: posts
+    });
+});
 
 export default router;
