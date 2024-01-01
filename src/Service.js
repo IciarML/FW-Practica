@@ -1,5 +1,5 @@
 const posts = new Map();
-let id = 0;
+let nextId = 0;
 
 export function loadSampleData() {
 addPost({
@@ -179,9 +179,9 @@ addPost({
 loadSampleData();
 
 export function addPost(post) {
-        id++;
-        post.id = id;
-        posts.set(id, post);
+        let id = nextId++;
+        post.id = id.toString();
+        posts.set(post.id, post);
 }
 
 export function addValoracion(id, { nombre, comentario, estrellas }) {
@@ -226,4 +226,34 @@ export function editPost(id, { titulo, autor, genero, sinopsis, isbn, precio, ed
         posts.set(id, postsToUpdate);
 }
 
-
+/*export function buscar() {
+        let query = document.getElementById("buscador").value;
+        console.log(query);
+        if(query.trim()===""){
+            return;
+        }
+    
+        let results = [];
+    
+        for(let i = 0; i < posts.length; i++){
+            if(posts[i].toLowerCase().includes(query.toLowerCase())){
+                results.push(posts[i]);
+            }
+        }
+    
+        document.getElementById("results").innerHTML = "";
+    
+        if(results.length > 0){
+            for(let i = o; i < results.length; i++){
+                let li = document.createElement("li");
+                li.textContent = results[i];
+                document.getElementById("results").appendChild(li);
+            }
+        }
+        else{
+            let li = document.createElement("li");
+            li.textContent = results[i];
+            document.getElementById("results").appendChild(li);
+        }
+    }
+*/

@@ -49,8 +49,8 @@
     <!-------------------------------------------------------------------------------------------->
     <!--SEARCHER-->
     <div class="buscador">
-        <button class="botonLupa">Buscar</button>
-        <input type="text" placeholder="Busca por título, ISBN...">
+        <button class="botonLupa" onclick="buscar()">Buscar</button>
+        <input type="text" placeholder="Busca por título" name="buscador" id="buscador">
         <!--<type> defines a text field-->
         <!--<placeholder> is used to provide a hint of what the user is expected to enter in that space-->
     </div>
@@ -68,19 +68,20 @@
                 {{#posts}}
                 <div class="col-xs-3 col-sm-3 col-md-3">
                     <div class="book">
-                        <a href="post/{{id}}"><img src="{{imagen}}" class="img-fluid"></a>
+                        <a href="post/{{id}}"><img src="{{imagen}}" class="img-fluid" id="book-image"></a>
                         <!--Image-->
                         <!--<a> creates a link to other internet pages, files...-->
                         <!--class="img-fluid" is used to make an image flexible and adapt to the width of its container-->
                         <hr> <!--Horizontal line-->
                         <div> <!--Title-->
-                            <a class="book-title" href="post/{{id}}">
+                            <a class="book-title" id="book-title" href="post/{{id}}">
                                 {{titulo}}
                             </a>
                         </div>
                         <div class="book-author">{{autor}}</div> <!--Author-->
                         <div class="book-price">{{precio}} €</div> <!--Price-->
                     </div>
+                    <ul id="results" class="results"></ul>
                 </div>
                 {{/posts}}
                 

@@ -17,3 +17,15 @@ async function loadMore(){
 
     loadMoreRequests++;
 }
+
+document.addEventListener("keyup", e=>{
+    
+    if(e.target.matches("#buscador")){
+        if(e.key === "Escape")e.target.value = ""
+        document.querySelectorAll(".book-image").forEach(books =>{
+            books.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+            ?books.classList.remove("filtro")
+            :books.classList.add("filtro")
+        })
+    }    
+})

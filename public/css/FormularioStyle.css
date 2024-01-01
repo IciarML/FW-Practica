@@ -111,8 +111,9 @@ hr { /*For the horizontal line of separation*/
     margin-top:30px;
 }
 
-input, textarea, select {
-    margin-bottom:20px;
+label {
+    margin-bottom:5px;
+    display: inline-block;
 }
 
 .space{
@@ -151,3 +152,35 @@ footer {
     color: #e811ab4c;
     padding-top: 20px;
 }
+
+
+/*--------------------------------------------------------------------------------*/
+/*VALIDATION ALERTS*/
+
+.control{
+    margin-bottom:25px;
+}
+
+.control.success input {
+    border-color: #2ecc71;
+}
+
+.control.error input, 
+.control.error select, 
+.control.error textarea {
+    border-color: #3c56e7fa;
+    background-color: #3c56e728;
+}
+
+.control small {
+    color: #3c56e7;
+    position: absolute;
+    visibility: hidden;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.control.error small{
+    visibility: visible;
+}
+

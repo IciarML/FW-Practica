@@ -18,7 +18,7 @@ router.post('/new', (req, res) => {
     let notCorrectTitulo = ''
     let notCorrectAutor = ''
     let notCorrectPrecio = ''
-    if (req.body.titulo == '' || req.body.autor == '' || req.body.precio == '') {
+    /*if (req.body.titulo == '' || req.body.autor == '' || req.body.precio == '') {
         //Se renderiza a savedBook
         res.render('savedBook', {
             posts: Service.getPosts(),
@@ -37,9 +37,9 @@ router.post('/new', (req, res) => {
             success3: req.body.precio != notCorrectPrecio,
             bien: (req.body.titulo != notCorrectTitulo) && (req.body.autor != notCorrectAutor) && (req.body.precio != notCorrectPrecio),
         });
-            //Se llama a una función (addPost) para agregar una nueva publicación
+            //Se llama a una función (addPost) para agregar una nueva publicación*/
             let post = Service.getPost(Service.addPost({ titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios, valoraciones }));
-        };
+        //};
 });
 
 router.get("/editar/:id", (req, res) => {
@@ -81,7 +81,7 @@ router.get('/formulario', (req, res) => {
     res.render('Formulario');
 });
 
-
+//Cargar más
 router.get('/books', (req, res) => {
 
     const from = parseInt(req.query.from);
@@ -93,5 +93,19 @@ router.get('/books', (req, res) => {
         posts: posts
     });
 });
+
+
+function setErrorFor(input,message){
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
+    formControl.className = 'control error';
+    small.innerText = message;
+}
+
+function setSuccessFor(input){
+    const formControl = input.parentElement;
+    formControl.className = 'control success';
+}
+
 
 export default router;

@@ -59,46 +59,67 @@
 
   <!-------------------------------------------------------------------------------------------->
   <!--FORM--> 
-  <form class="forms" method="post" action="new"> <!--Se envía la información del formulario al servidor--> 
+  <form class="forms" method="post" action="/new" id="forms"> <!--Se envía la información del formulario al servidor--> 
     <h2>¿Eres escritor? Mándanos tu libro <span class="badge bg-primary">¡Nuevo!</span></h2>
 
-    <label for="titulo">Título</label>
-    <input type="text" class="form-control" id="titulo" placeholder="Luna de Plutón" name='titulo' value="{{post.titulo}}">
+    <div class="control">
+      <label for="titulo">Título</label>
+      <input type="text" class="form-control" id="titulo" placeholder="Luna de Plutón" name='titulo' value="{{post.titulo}}">
+      <small>Error message</small>
+    </div>
     
+    <div class="control">
+      <label for="autor">Autor</label>
+      <input type="text" class="form-control" id="autor" placeholder="Menganito" name='autor' value="{{post.autor}}">
+      <small>Error message</small>
+    </div>
 
-    <label for="autor">Autor</label>
-    <input type="text" class="form-control" id="autor" placeholder="Menganito" name='autor' value="{{post.autor}}">
+    <div class="control">
+      <label for="genero">Géneros</label>
+      <select id="genero" class="form-control" name='genero'>
+        <option value="{{post.genero}}" disable selected>{{post.genero}}</option>
+        <option value="Autoayuda">Autoayuda</option>
+        <option value="Aventura">Aventura</option>
+        <option value="Biografia">Biografía</option>
+        <option value="Comic">Cómic</option>
+        <option value="Fantasia">Fantasía</option>
+        <option value="Ficcion">Ficción</option>
+        <option value="Historia">Historia</option>
+        <option value="Literatura">Literatura</option>
+        <option value="Misterio">Misterio</option>
+        <option value="Poesia">Poesía</option>
+        <option value="Romance">Romance</option>
+        <option value="Terror">Terror</option>
+      </select>
+      <small>Error message</small>
+    </div>
 
-    <label for="genero">Géneros</label>
-    <select id="genero" class="form-control" name='genero'>
-      <option value="{{post.genero}}" disable selected>{{post.genero}}</option>
-      <option value="Autoayuda">Autoayuda</option>
-      <option value="Aventura">Aventura</option>
-      <option value="Biografia">Biografía</option>
-      <option value="Comic">Cómic</option>
-      <option value="Fantasia">Fantasía</option>
-      <option value="Ficcion">Ficción</option>
-      <option value="Historia">Historia</option>
-      <option value="Literatura">Literatura</option>
-      <option value="Misterio">Misterio</option>
-      <option value="Poesia">Poesía</option>
-      <option value="Romance">Romance</option>
-      <option value="Terror">Terror</option>
-    </select>
-
+    <div class="control">
     <label for="sinopsis">Sinopsis</label>
     <textarea type="text" class="form-control" id="sinopsis" placeholder="En 1998, en pleno auge de ..."
       rows="4" name='sinopsis'>{{post.sinopsis}}</textarea>
+      <small>Error message</small>
+    </div>
 
+    <div class="control">
     <label for="isbn">ISBN</label>
     <input type="text" class="form-control" id="isbn" name='isbn' value="{{post.isbn}}">
+    <small>Error message</small>
+    </div>
 
+    <div class="control">
     <label for="precio">Precio</label>
     <input type="text" class="form-control" id="precio" name='precio' placeholder="€" value="{{post.precio}}">
+    <small>Error message</small>
+    </div>  
 
+    <div class="control">
     <label for="editorial">Editorial</label>
     <input type="text" class="form-control" id="editorial" name='editorial' value="{{post.editorial}}">
+    <small>Error message</small>
+    </div>  
 
+    <div class="control">
     <label for="idioma">Idioma</label>
     <select id="idioma" class="form-control" name='idioma'>
       <option value="" disable selected>{{post.idioma}}</option>
@@ -108,10 +129,15 @@
       <option value="Inglés">Inglés</option>
       <option value="Ruso">Ruso</option>
     </select>
+    <small>Error message</small>
+    </div>
 
 
+    <div class="control">
     <label for="imagen">Añade una portada <i class="bi bi-card-image"></i></label>
     <input type="text" class="form-control" id="imagen" placeholder="URL" name='imagen' value="{{post.imagen}}">
+    <small>Error message</small>
+    </div>
 
     <div class="space">
       <label for="optionRadios">
@@ -136,6 +162,7 @@
         Email: info@olchi.com
     </p>
 </footer>
+<script src="validacion.js"></script>
 </body>
 
 </html>
