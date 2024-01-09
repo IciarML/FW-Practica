@@ -13,10 +13,12 @@ router.get('/', (req, res) => {
 
 router.post('/new', (req, res) => {
     //Se extraen los datos
+    const posts = getPostss(0,4); //para que cuando vuelva al Homepage se carguen 4 libros
     let { titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios } = req.body;
     let valoraciones = [];
-        //Se llama a una función (addPost) para agregar una nueva publicación
-        let post = Service.getPost(Service.addPost({ titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios, valoraciones }));
+    //Se llama a una función (addPost) para agregar una nueva publicación
+    Service.getPost(Service.addPost({ titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios, valoraciones }));
+    res.render('Homepage',{posts: posts});
 });
 
 router.get("/editar/:id", (req, res) => {
@@ -72,6 +74,27 @@ router.get('/books', (req, res) => {
 });
 
 
+//Buscador
+let existingNames = ['eighteen', 'lobezno: el viejo logan', 'monet: the triumph of impressionism', 'pacientes', 'harry', 'the', 'the bell jar'];
+
+router.get('/availableBuscar', (req, res) => {
+
+    let buscar = req.query.buscar.toLowerCase();
+
+    let matchingNames = existingNames.filter(name => name.toLowerCase().includes(buscar));
+
+    let availableBuscar = matchingNames.length === 0;
+
+
+    let response = {
+        available: availableBuscar
+    }
+
+    res.json(response);
+});
+
+
+
 //Valoraciones
 /*router.post('/saveRandom', (req, res) => {
 
@@ -98,23 +121,5 @@ router.get('/books', (req, res) => {
 
 ];*/
 
-//Buscador
-let existingNames = ['eighteen', 'lobezno: el viejo logan', 'monet: the triumph of impressionism', 'pacientes', 'harry', 'the', 'the bell jar'];
-
-router.get('/availableBuscar', (req, res) => {
-
-    let buscar = req.query.buscar.toLowerCase();
-
-    let matchingNames = existingNames.filter(name => name.toLowerCase().includes(buscar));
-
-    let availableBuscar = matchingNames.length === 0;
-
-
-    let response = {
-        available: availableBuscar
-    }
-
-    res.json(response);
-});
 
 export default router;
