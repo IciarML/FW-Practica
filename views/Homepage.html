@@ -49,14 +49,16 @@
     <!-------------------------------------------------------------------------------------------->
     <!--SEARCHER-->
     <div class="buscador">
-        <button class="botonLupa" onclick="buscar()">Buscar</button>
-        <input type="text" placeholder="Busca por título" name="buscador" id="buscador">
+        <button class="botonLupa" onclick='checkBuscarAvailability()'>Buscar</button>
+        <input type='text' placeholder='Busca por título' id='buscar'>
         <!--<type> defines a text field-->
         <!--<placeholder> is used to provide a hint of what the user is expected to enter in that space-->
     </div>
 
     <!--HORIZONTAL LINE-->
     <hr>
+
+    <div id="message"></div>
 
     <!-------------------------------------------------------------------------------------------->
     <!--ELEMENTS-->

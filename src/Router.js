@@ -11,14 +11,14 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/new', (req, res) => {
+/*router.post('/new', (req, res) => {
     //Se extraen los datos
     let { titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios } = req.body;
     let valoraciones = [];
     let notCorrectTitulo = ''
     let notCorrectAutor = ''
     let notCorrectPrecio = ''
-    /*if (req.body.titulo == '' || req.body.autor == '' || req.body.precio == '') {
+    if (req.body.titulo == '' || req.body.autor == '' || req.body.precio == '') {
         //Se renderiza a savedBook
         res.render('savedBook', {
             posts: Service.getPosts(),
@@ -37,10 +37,10 @@ router.post('/new', (req, res) => {
             success3: req.body.precio != notCorrectPrecio,
             bien: (req.body.titulo != notCorrectTitulo) && (req.body.autor != notCorrectAutor) && (req.body.precio != notCorrectPrecio),
         });
-            //Se llama a una función (addPost) para agregar una nueva publicación*/
+            //Se llama a una función (addPost) para agregar una nueva publicación
             let post = Service.getPost(Service.addPost({ titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios, valoraciones }));
-        //};
-});
+        };
+});*/
 
 router.get("/editar/:id", (req, res) => {
     let post = Service.getPost(req.params.id);
@@ -95,17 +95,48 @@ router.get('/books', (req, res) => {
 });
 
 
-function setErrorFor(input,message){
-    const formControl = input.parentElement;
-    const small = formControl.querySelector('small');
-    formControl.className = 'control error';
-    small.innerText = message;
-}
+//Valoraciones
+router.post('/saveRandom', (req, res) => {
 
-function setSuccessFor(input){
-    const formControl = input.parentElement;
-    formControl.className = 'control success';
-}
+    let info = req.body.key;
 
+    let response = {
+        key: info,
+        value: Math.ceil(Math.random() * 100)
+    }
+
+    res.json(response);
+});
+
+
+/*let existingNames = [ 
+    {name:'la biblioteca de medianoche', image: '/Photos/Image8.jpg'},
+    {name: 'la fundacion', image: '/Photos/Image6.jpg' },
+    {name: 'eighteen', image: '/Photos/Image10.jpg' },
+    {name: 'lobezno: el viejo logan', image: '/Photos/Image7.jpg'},
+    {name: 'monet: the triumph of impressionism', image: '/Photos/Image9.jpg'},
+    {name: 'los pacientes del doctor garcía', image: '/Photos/Image12.jpg' },
+    {name: 'harry potter coleccion completa', image: '/Photos/Imagen1.png'},
+    {name: 'the bell jar', image: '/Photos/Image2.jpg' },
+
+];*/
+
+let existingNames = ['eighteen', 'lobezno: el viejo logan', 'monet: the triumph of impressionism', 'pacientes', 'harry', 'the', 'the bell jar'];
+
+router.get('/availableBuscar', (req, res) => {
+
+    let buscar = req.query.buscar.toLowerCase();
+
+    let matchingNames = existingNames.filter(name => name.toLowerCase().includes(buscar));
+
+    let availableBuscar = matchingNames.length === 0;
+
+
+    let response = {
+        available: availableBuscar
+    }
+
+    res.json(response);
+});
 
 export default router;

@@ -5,7 +5,7 @@ export function loadSampleData() {
 addPost({
         imagen: '/Photos/Imagen1.png', titulo: "HARRY POTTER COLECCIÓN COMPLETA", autor: "J.K. Rowling", precio: "80.68",
         genero: "Fantasía",
-        sinopsis: "Este estuche contiene las novelas: Harry Potter y la piedra filosofal, Harry Potter y la cámara secreta, Harry Potter y el prisionero de Azkaban, Harry Potter y el cáliz de fuego, Harry Potter y la Orden del Fénix, Harry Potter y el misterio del príncipe, Harry Potter y las reliquias de la muerte.",
+        sinopsis: "Este estuche contiene las novelas: Harry Potter y la piedra filosofal, Harry Potter y la cámara secreta, Harry Potter y el prisionero de Azkaban, Harry Potter y el cáliz de fuego, Harry Potter y la Orden del Fénix, Harry Potter y el misterio del príncipe, Harry Potter y las reliquias de la muerte. Este estuche contiene las novelas: Harry Potter y la piedra filosofal, Harry Potter y la cámara secreta, Harry Potter y el prisionero de Azkaban, Harry Potter y el cáliz de fuego, Harry Potter y la Orden del Fénix, Harry Potter y el misterio del príncipe, Harry Potter y las reliquias de la muerte. Este estuche contiene las novelas: Harry Potter y la piedra filosofal, Harry Potter y la cámara secreta, Harry Potter y el prisionero de Azkaban, Harry Potter y el cáliz de fuego, Harry Potter y la Orden del Fénix, Harry Potter y el misterio del príncipe, Harry Potter y las reliquias de la muerte.",
         isbn: "9788418173196", editorial: "SALAMANDRA", idioma: "Castellano", optionRadios: "Tapa blanda",
         //Valoracion
         valoraciones: [
@@ -33,7 +33,7 @@ addPost({
 addPost({
         imagen: "/Photos/Image3.jpg", titulo: "RETORNO DE LAS ESTRELLAS", autor: "Stanisław Lem", precio: "13.77",
         genero: "Ficción",
-        sinopsis: "Cuando  Hall Bregg regresa a la Tierra tras una arriesgada expedición de diez años en una galaxia lejana, se encuentra con un planeta en el que, en virtud de la contracción del tiempo einsteiniana, han pasado ciento veintisiete años. Bregg se encuentra, pues, ante el difícil reto de integrarse en una sociedad distinta de la que conoció, en la cual, a lo largo todos esos años, se han producido variaciones sustanciales en la especie humana, así como en las ideas y comportamientos, que lo convierten en un anacronismo viviente.",
+        sinopsis: "Cuando  Hall Bregg regresa a la Tierra tras una arriesgada expedición de diez años en una galaxia lejana, se encuentra con un planeta en el que, en virtud de la contracción del tiempo einsteiniana, han pasado ciento veintisiete años. Tierra tras una arriesgada expedición de diez años en una galaxia lejana, se encuentra con un planeta en el que Bregg se encuentra, pues, ante el difícil reto de integrarse en una sociedad distinta de la que conoció, en la cual, a lo largo todos esos años, se han producido variaciones sustanciales en la especie humana, así como en las ideas y comportamientos, que lo convierten en un anacronismo viviente. Tierra tras una arriesgada expedición de diez años en una galaxia lejana, se encuentra con un planeta en el que muere. ante el difícil reto de integrarse en una sociedad distinta de la que conoció, en la cual, a lo largo todos esos años, se han producido variaciones sustanciales en la especie humana, así como en las ideas y comportamientos.",
         isbn: "9788413621845", editorial: "ALIANZA", idioma: "Castellano", optionRadios: "Tapa blanda",
         //Valoracion
         valoraciones: [
@@ -47,7 +47,7 @@ addPost({
 addPost({
         imagen: "/Photos/Image4.jpg", titulo: "INVISIBLE", autor: "Eloy Moreno", precio: "15.15",
         genero: "Literatura",
-        sinopsis: "¿Quién no ha deseado alguna vez ser invisible?, ¿Quién no ha deseado alguna vez dejar de serlo? El problema es que nunca he llegado a controlar bien ese poder: A veces, cuando más ganas tenía de ser invisible, era cuando más gente  me veía, y en cambio, cuando deseaba que todos me vieran, era cuando a mi cuerpo le daba por desaparecer.",
+        sinopsis: "¿Quién no ha deseado alguna vez ser invisible?, ¿Quién no ha deseado alguna vez dejar de serlo? El problema es que nunca he llegado a controlar bien ese poder: A veces, cuando más ganas tenía de ser invisible, era cuando más gente  me veía, y en cambio, cuando deseaba que todos me vieran, era cuando a mi cuerpo le daba por desaparecer. ¿Quién no ha deseado alguna vez ser invisible?, ¿Quién no ha deseado alguna vez dejar de serlo? El problema es que nunca he llegado a controlar bien ese poder: A veces, cuando más ganas tenía de ser invisible, era cuando más gente me veía, y en cambio, cuando deseaba que todos me vieran, era cuando a mi cuerpo le daba por desaparecer. ¿Quién no ha deseado alguna vez ser invisible?, ¿Quién no ha deseado alguna vez dejar de serlo? El problema es que nunca he llegado a controlar bien ese poder: A veces, cuando más ganas tenía de ser invisible, era cuando más gente me veía.",
         isbn: "9788408224228", editorial: "NUBE DE TINTA", idioma: "Castellano", optionRadios: "Tapa blanda",
         //Valoracion
         valoraciones: [
@@ -194,11 +194,11 @@ export function deletePost(id) {
         posts.delete(id);
 }
 
-export function getPosts() {
+export function getPosts() { //ProductDescription
         return [...posts.values()];
 }
 
-export function getPostss(from, to) {
+export function getPostss(from, to) { //Cargar más
         let values = [...posts.values()];
         if (from !== undefined) {
             return values.slice(from, to);
@@ -225,35 +225,3 @@ export function editPost(id, { titulo, autor, genero, sinopsis, isbn, precio, ed
         postsToUpdate.optionRadios = optionRadios !== undefined ? optionRadios : postsToUpdate.optionRadios;
         posts.set(id, postsToUpdate);
 }
-
-/*export function buscar() {
-        let query = document.getElementById("buscador").value;
-        console.log(query);
-        if(query.trim()===""){
-            return;
-        }
-    
-        let results = [];
-    
-        for(let i = 0; i < posts.length; i++){
-            if(posts[i].toLowerCase().includes(query.toLowerCase())){
-                results.push(posts[i]);
-            }
-        }
-    
-        document.getElementById("results").innerHTML = "";
-    
-        if(results.length > 0){
-            for(let i = o; i < results.length; i++){
-                let li = document.createElement("li");
-                li.textContent = results[i];
-                document.getElementById("results").appendChild(li);
-            }
-        }
-        else{
-            let li = document.createElement("li");
-            li.textContent = results[i];
-            document.getElementById("results").appendChild(li);
-        }
-    }
-*/

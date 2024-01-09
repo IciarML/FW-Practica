@@ -163,6 +163,7 @@ footer {
 
 .control.success input {
     border-color: #2ecc71;
+    background-color: #3ce75028;
 }
 
 .control.error input, 

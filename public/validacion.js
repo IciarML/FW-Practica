@@ -60,7 +60,7 @@ function checkInputs(){
         setErrorFor(imagen, 'Error, tiene que indicar la imagen.');
     }
     else if(!isURL(imagenValue)) {
-        setErrorFor(imagen, 'Indique un formato de URL válido.')
+        setErrorFor(imagen, 'Indique un formato de URL válido.');
     }
     else{
         setSuccessFor(imagen);
