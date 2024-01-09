@@ -161,6 +161,8 @@ footer {
     margin-bottom:25px;
 }
 
+.control.success select, 
+.control.success textarea,
 .control.success input {
     border-color: #2ecc71;
     background-color: #3ce75028;

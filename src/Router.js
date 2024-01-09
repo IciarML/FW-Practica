@@ -11,36 +11,13 @@ router.get('/', (req, res) => {
     });
 });
 
-/*router.post('/new', (req, res) => {
+router.post('/new', (req, res) => {
     //Se extraen los datos
     let { titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios } = req.body;
     let valoraciones = [];
-    let notCorrectTitulo = ''
-    let notCorrectAutor = ''
-    let notCorrectPrecio = ''
-    if (req.body.titulo == '' || req.body.autor == '' || req.body.precio == '') {
-        //Se renderiza a savedBook
-        res.render('savedBook', {
-            posts: Service.getPosts(),
-            success: req.body.titulo != notCorrectTitulo,
-            success2: req.body.autor != notCorrectAutor,
-            success3: req.body.precio != notCorrectPrecio,
-            bien: (req.body.titulo != notCorrectTitulo) && (req.body.autor != notCorrectAutor) && (req.body.precio != notCorrectPrecio),
-        });
-    }
-    else {
-            //Se renderiza a savedBook
-            res.render('savedBook', {
-            posts: Service.getPosts(),
-            success: req.body.titulo != notCorrectTitulo,
-            success2: req.body.autor != notCorrectAutor,
-            success3: req.body.precio != notCorrectPrecio,
-            bien: (req.body.titulo != notCorrectTitulo) && (req.body.autor != notCorrectAutor) && (req.body.precio != notCorrectPrecio),
-        });
-            //Se llama a una función (addPost) para agregar una nueva publicación
-            let post = Service.getPost(Service.addPost({ titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios, valoraciones }));
-        };
-});*/
+        //Se llama a una función (addPost) para agregar una nueva publicación
+        let post = Service.getPost(Service.addPost({ titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios, valoraciones }));
+});
 
 router.get("/editar/:id", (req, res) => {
     let post = Service.getPost(req.params.id);
@@ -96,7 +73,7 @@ router.get('/books', (req, res) => {
 
 
 //Valoraciones
-router.post('/saveRandom', (req, res) => {
+/*router.post('/saveRandom', (req, res) => {
 
     let info = req.body.key;
 
@@ -106,7 +83,7 @@ router.post('/saveRandom', (req, res) => {
     }
 
     res.json(response);
-});
+});*/
 
 
 /*let existingNames = [ 
@@ -121,6 +98,7 @@ router.post('/saveRandom', (req, res) => {
 
 ];*/
 
+//Buscador
 let existingNames = ['eighteen', 'lobezno: el viejo logan', 'monet: the triumph of impressionism', 'pacientes', 'harry', 'the', 'the bell jar'];
 
 router.get('/availableBuscar', (req, res) => {

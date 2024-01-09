@@ -18,6 +18,8 @@ async function loadMore(){
     loadMoreRequests++;
 }
 
+
+//Buscador
 async function checkBuscarAvailability() {
 
     let buscarInput = document.getElementById('buscar');
@@ -37,7 +39,7 @@ async function checkBuscarAvailability() {
 
 }
 
-
+/*           NO FUNCIONA POR AHORA
 async function generateRandom(){ //para subir las valoraciones con ajax
 
     const key = Math.ceil(Math.random() * 100)
@@ -69,4 +71,4 @@ async function generateRandom(){ //para subir las valoraciones con ajax
 
 async function newBook(){ //para hacer post a los libros
 
-}
+}*/
