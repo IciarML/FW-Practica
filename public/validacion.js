@@ -89,6 +89,10 @@ function checkInputs(){
     else{
         setSuccessFor(idioma);
     }
+    if(tituloValue != '' && isTitle(tituloValue) && autorValue != '' && sinopsisValue != '' && isPrice(precioValue) && imagenValue != '' && isURL(imagenValue) && generoValue != '' && isbnValue != '' && editorialValue != '' && idiomaValue != '')
+    {
+        form.submit();
+    }
 }
 
 function setErrorFor(input,message){

@@ -81,6 +81,15 @@ async function newBook(){ //para hacer post a los libros
 
 }*/
 
+//Valoraciones
+async function valoraciones(){
+let data = {
+    nombre: document.getElementById("nombre"),
+    comentario: document.getElementById("comentario"),
+    estrellas: document.getElementById("estrellas")
+  }
+}  
+
 //Animacion
 gsap.registerPlugin(ScrollTrigger);
 

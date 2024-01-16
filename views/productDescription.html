@@ -76,7 +76,6 @@
                     <!--Genres-->
                     <h4>Género:</h4>
                     <div class="genres">{{post.genero}}</div>
-
                     <!--Synopsis-->
                     <h4>Sinopsis:</h4>
                     <div class="book-sinopsis">
@@ -157,19 +156,21 @@
         <form id="contact" method="post" action="/newValoracion/{{post.id}}">
             <h2>Deja tu comentario:</h2>
             <fieldset>
-                <input placeholder="Nombre" type="text" name='nombre'>
+                <input placeholder="Nombre" type="text" name='nombre' id="nombre">
             </fieldset>
             <fieldset>
-                <textarea placeholder="Escribe aquí tu comentario..." name='comentario'></textarea>
+                <textarea placeholder="Escribe aquí tu comentario..." name='comentario' id="comentario"></textarea>
             </fieldset>
             <fieldset>
-                <input placeholder="0/5 ⭐" type="text" name='estrellas'>
+                <input placeholder="0/5 ⭐" type="text" name='estrellas' id="estrellas">
             </fieldset>
             <div>
                 <button type="submit" class="newButton">Guardar</button>
             </div>
         </form>
     </div>
+
+    <div id="resultado"></div>
 
     <!-------------------------------------------------------------------------------------------->
     <!--FOOTER-->

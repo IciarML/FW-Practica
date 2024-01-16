@@ -93,7 +93,10 @@ router.get('/availableBuscar', (req, res) => {
     res.json(response);
 });
 
-
+//Animación
+router.get('/index',(req,res)=> {
+    res.render('index');
+})
 
 //Valoraciones
 /*router.post('/saveRandom', (req, res) => {
