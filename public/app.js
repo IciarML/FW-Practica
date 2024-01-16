@@ -1,42 +1,50 @@
 const NUM_RESULTS = 4;
-
 let loadMoreRequests = 0;
 
+//Cargar más
 async function loadMore(){
-
+    //Paso 1: Calcular los índices "from" y "to" para la siguiente carga de resultados
     const from = (loadMoreRequests+1) * NUM_RESULTS;
     const to = from + NUM_RESULTS;
-
+    //Paso 2: Realizar una solicitud asíncrona al servidor para obtener más resultados de libros
     const response = await fetch(`/books?from=${from}&to=${to}`);
-
+    //Paso 3: Obtener los nuevos resultados en formato de texto desde la respuesta del servidor
     const newPosts = await response.text();
-  
+    //Paso 4: Obtener el elemento HTML donde se mostrarán los resultados de los libros
     const postsDiv = document.getElementById("books");
-
+    //Paso 5: Agregar los nuevos resultados al contenido existente en el elemento HTML
     postsDiv.innerHTML += newPosts;
-
+    //Paso 6: Incrementar el contador de solicitudes de cargar más
     loadMoreRequests++;
 }
 
-
 //Buscador
 async function checkBuscarAvailability() {
-
+    //Paso 1: Obtener el elemento de entrada con el id 'buscar'
     let buscarInput = document.getElementById('buscar');
-
+    //Paso 2: Obtener el valor en minúsculas del campo de entrada de búsqueda
     let buscar = buscarInput.value.toLowerCase(); //convierte los nombres a minusculas para no hacer distinciones
-
+    //Paso 3: Realizar una solicitud asíncrona al punto final del servidor '/availableBuscar' con el término de búsqueda como parámetro de consulta
     const response = await fetch(`/availableBuscar?buscar=${buscar}`);
-
+    //Paso 4: Analizar la respuesta JSON recibida del servidor
     const responseObj = await response.json();
-
+    //Paso 5: Crear un mensaje en función del estado de disponibilidad
     let message = responseObj.available? 
         '<p>No encontrado</p>':
         '<p>Encontrado</p>';
-
+        /*
+        IDEAS PARA EL BUSCADOR
+        if (responseObj.available) {
+            //<p>No encontrado</p>
+        } else { 
+            //<p>encontrado</p>
+        }  
+        */
+        
+    //Paso 6: Obtener el elemento HTML con el id 'message'
     const messageDiv = document.getElementById('message');
+    //Paso 7: Actualizar el contenido del elemento 'message' con el mensaje generado
     messageDiv.innerHTML = message;
-
 }
 
 /*           NO FUNCIONA POR AHORA
