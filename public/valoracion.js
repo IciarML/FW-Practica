@@ -1,10 +1,10 @@
 //Valoraciones
-async function generateRandom(){
+async function generateRandom() {
 
     const key = document.getElementById('commentInput').value
 
     console.log('Sending key:', key);
-    
+
     const response = await fetch(`/saveRandom`, {
         method: "POST",
         headers: {

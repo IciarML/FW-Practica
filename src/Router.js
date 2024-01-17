@@ -5,7 +5,7 @@ import { getPostss } from './Service.js';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    const posts = getPostss(0,4);
+    const posts = getPostss(0, 4);
     res.render('Homepage', {
         posts: posts
     });
@@ -13,27 +13,26 @@ router.get('/', (req, res) => {
 
 router.post('/new', (req, res) => {
     //Se extraen los datos
-    const posts = getPostss(0,4); //para que cuando vuelva al Homepage se carguen 4 libros
+    const posts = getPostss(0, 4); //para que cuando vuelva al Homepage se carguen 4 libros
     let { titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios } = req.body;
     let valoraciones = [];
     //Se llama a una función (addPost) para agregar una nueva publicación
     Service.getPost(Service.addPost({ titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios, valoraciones }));
-    res.render('Homepage',{posts: posts});
+    res.render('Homepage', { posts: posts });
 });
 
 router.get("/editar/:id", (req, res) => {
     let post = Service.getPost(req.params.id);
-    res.render("FormularioEditar",{post});
-  }); 
+    res.render("FormularioEditar", { post });
+});
 
 router.post('/update/:id', (req, res) => {
-        let { titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios } = req.body;
-        let post = ({titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios});
-        Service.editPost(req.params.id,post);
-        post = Service.getPost(req.params.id);
-        res.render('productDescription',{post});
+    let { titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios } = req.body;
+    let post = ({ titulo, autor, genero, sinopsis, isbn, precio, editorial, idioma, imagen, optionRadios });
+    Service.editPost(req.params.id, post);
+    post = Service.getPost(req.params.id);
+    res.render('productDescription', { post });
 });
-            
 
 router.post("/newValoracion/:id", (req, res) => {
     let { nombre, comentario, estrellas } = req.body;
@@ -66,13 +65,12 @@ router.get('/books', (req, res) => {
     const from = parseInt(req.query.from);
     const to = parseInt(req.query.to);
 
-    const posts = getPostss(from,to);
+    const posts = getPostss(from, to);
 
     res.render('books', {
         posts: posts
     });
 });
-
 
 //Buscador
 let existingNames = ['eighteen', 'lobezno: el viejo logan', 'monet: the triumph of impressionism', 'pacientes', 'harry', 'the', 'the bell jar'];
@@ -116,17 +114,5 @@ router.get('/e', (req, res) => {
 router.get('/busqueda', (req, res) => {
     res.render('busqueda');
 });
-/*let existingNames = [ 
-    {name:'la biblioteca de medianoche', image: '/Photos/Image8.jpg'},
-    {name: 'la fundacion', image: '/Photos/Image6.jpg' },
-    {name: 'eighteen', image: '/Photos/Image10.jpg' },
-    {name: 'lobezno: el viejo logan', image: '/Photos/Image7.jpg'},
-    {name: 'monet: the triumph of impressionism', image: '/Photos/Image9.jpg'},
-    {name: 'los pacientes del doctor garcía', image: '/Photos/Image12.jpg' },
-    {name: 'harry potter coleccion completa', image: '/Photos/Imagen1.png'},
-    {name: 'the bell jar', image: '/Photos/Image2.jpg' },
-
-];*/
-
 
 export default router;

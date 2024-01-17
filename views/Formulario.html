@@ -23,9 +23,9 @@
       <a class="menu" href="index">BEST SELLER</a>
       <a class="menu">OFERTAS</a>
       <a class="menu" href="busqueda">BUSCAR LIBROS</a>
-  </div>
+    </div>
   </nav>
-  
+
   <!-------------------------------------------------------------------------------------------->
   <!--LOGO-->
   <div class="logo">
@@ -60,16 +60,17 @@
   <hr> <!--HORIZONTAL LINE-->
 
   <!-------------------------------------------------------------------------------------------->
-  <!--FORM--> 
-  <form class="forms" method="post" action="/new" id="forms"> <!--Se envía la información del formulario al servidor--> 
+  <!--FORM-->
+  <form class="forms" method="post" action="/new" id="forms"> <!--Se envía la información del formulario al servidor-->
     <h2>¿Eres escritor? Mándanos tu libro <span class="badge bg-primary">¡Nuevo!</span></h2>
 
     <div class="control">
       <label for="titulo">Título</label>
-      <input type="text" class="form-control" id="titulo" placeholder="Luna de Plutón" name='titulo' value="{{post.titulo}}">
+      <input type="text" class="form-control" id="titulo" placeholder="Luna de Plutón" name='titulo'
+        value="{{post.titulo}}">
       <small>Error message</small>
     </div>
-    
+
     <div class="control">
       <label for="autor">Autor</label>
       <input type="text" class="form-control" id="autor" placeholder="Menganito" name='autor' value="{{post.autor}}">
@@ -97,74 +98,76 @@
     </div>
 
     <div class="control">
-    <label for="sinopsis">Sinopsis</label>
-    <textarea type="text" class="form-control" id="sinopsis" placeholder="En 1998, en pleno auge de ..."
-      rows="4" name='sinopsis'>{{post.sinopsis}}</textarea>
+      <label for="sinopsis">Sinopsis</label>
+      <textarea type="text" class="form-control" id="sinopsis" placeholder="En 1998, en pleno auge de ..." rows="4"
+        name='sinopsis'>{{post.sinopsis}}</textarea>
       <small>Error message</small>
     </div>
 
     <div class="control">
-    <label for="isbn">ISBN</label>
-    <input type="text" class="form-control" id="isbn" name='isbn' value="{{post.isbn}}">
-    <small>Error message</small>
+      <label for="isbn">ISBN</label>
+      <input type="text" class="form-control" id="isbn" name='isbn' value="{{post.isbn}}">
+      <small>Error message</small>
     </div>
 
     <div class="control">
-    <label for="precio">Precio</label>
-    <input type="text" class="form-control" id="precio" name='precio' placeholder="€" value="{{post.precio}}">
-    <small>Error message</small>
-    </div>  
+      <label for="precio">Precio</label>
+      <input type="text" class="form-control" id="precio" name='precio' placeholder="€" value="{{post.precio}}">
+      <small>Error message</small>
+    </div>
 
     <div class="control">
-    <label for="editorial">Editorial</label>
-    <input type="text" class="form-control" id="editorial" name='editorial' value="{{post.editorial}}">
-    <small>Error message</small>
-    </div>  
+      <label for="editorial">Editorial</label>
+      <input type="text" class="form-control" id="editorial" name='editorial' value="{{post.editorial}}">
+      <small>Error message</small>
+    </div>
 
     <div class="control">
-    <label for="idioma">Idioma</label>
-    <select id="idioma" class="form-control" name='idioma'>
-      <option value="" disable selected>{{post.idioma}}</option>
-      <option value="Alemán">Alemán</option>
-      <option value="Castellano">Castellano</option>
-      <option value="Francés">Francés</option>
-      <option value="Inglés">Inglés</option>
-      <option value="Ruso">Ruso</option>
-    </select>
-    <small>Error message</small>
+      <label for="idioma">Idioma</label>
+      <select id="idioma" class="form-control" name='idioma'>
+        <option value="" disable selected>{{post.idioma}}</option>
+        <option value="Alemán">Alemán</option>
+        <option value="Castellano">Castellano</option>
+        <option value="Francés">Francés</option>
+        <option value="Inglés">Inglés</option>
+        <option value="Ruso">Ruso</option>
+      </select>
+      <small>Error message</small>
     </div>
 
 
     <div class="control">
-    <label for="imagen">Añade una portada <i class="bi bi-card-image"></i></label>
-    <input type="text" class="form-control" id="imagen" placeholder="URL" name='imagen' value="{{post.imagen}}">
-    <small>Error message</small>
+      <label for="imagen">Añade una portada <i class="bi bi-card-image"></i></label>
+      <input type="text" class="form-control" id="imagen" placeholder="URL" name='imagen' value="{{post.imagen}}">
+      <small>Error message</small>
     </div>
 
     <div class="space">
       <label for="optionRadios">
-        <input type="radio" name="optionRadios" id="optionsRadios1" value="Tapa dura" checked value="{{post.optionRadios}}"> Tapa dura
+        <input type="radio" name="optionRadios" id="optionsRadios1" value="Tapa dura" checked
+          value="{{post.optionRadios}}"> Tapa dura
       </label>
       <label>
-        <input type="radio" name="optionRadios" id="optionsRadios2" value="Tapa blanda" checked value="{{post.optionRadios}}"> Tapa blanda
+        <input type="radio" name="optionRadios" id="optionsRadios2" value="Tapa blanda" checked
+          value="{{post.optionRadios}}"> Tapa blanda
       </label>
     </div>
 
     <button type="submit" class="newButton">Guardar</button>
-    <a href="/" type="submit" class="newButton">Cancelar</a>    
+    <a href="/" type="submit" class="newButton">Cancelar</a>
 
   </form>
 
   <footer>
     <p>
-        © 2023 OLCHI - Todos los derechos reservados.
-        [Enlace a Política de Privacidad] | [Enlace a Términos y Condiciones]
-        Dirección: Universidad Rey Juan Carlos, Móstoles, España
-        Teléfono: +34 123 456 789
-        Email: info@olchi.com
+      © 2023 OLCHI - Todos los derechos reservados.
+      [Enlace a Política de Privacidad] | [Enlace a Términos y Condiciones]
+      Dirección: Universidad Rey Juan Carlos, Móstoles, España
+      Teléfono: +34 123 456 789
+      Email: info@olchi.com
     </p>
-</footer>
-<script src="validacion.js"></script>
+  </footer>
+  <script src="validacion.js"></script>
 </body>
 
 </html>

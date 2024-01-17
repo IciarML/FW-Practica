@@ -23,9 +23,9 @@
       <a class="menu" href="index">BEST SELLER</a>
       <a class="menu">OFERTAS</a>
       <a class="menu" href="busqueda">BUSCAR LIBROS</a>
-  </div>
+    </div>
   </nav>
-  
+
   <!-------------------------------------------------------------------------------------------->
   <!--LOGO-->
   <div class="logo">
@@ -60,13 +60,15 @@
   <hr> <!--HORIZONTAL LINE-->
 
   <!-------------------------------------------------------------------------------------------->
-  <!--FORM--> 
-  <form class="forms" method="post" action="/update/{{post.id}}"> <!--Se envía la información del formulario al servidor--> 
+  <!--FORM-->
+  <form class="forms" method="post" action="/update/{{post.id}}">
+    <!--Se envía la información del formulario al servidor-->
     <h2>¿Eres escritor? Mándanos tu libro <span class="badge bg-primary">¡Nuevo!</span></h2>
 
     <label for="titulo">Título</label>
-    <input type="text" class="form-control" id="titulo" placeholder="Luna de Plutón" name='titulo' value="{{post.titulo}}">
-    
+    <input type="text" class="form-control" id="titulo" placeholder="Luna de Plutón" name='titulo'
+      value="{{post.titulo}}">
+
 
     <label for="autor">Autor</label>
     <input type="text" class="form-control" id="autor" placeholder="Menganito" name='autor' value="{{post.autor}}">
@@ -89,8 +91,8 @@
     </select>
 
     <label for="sinopsis">Sinopsis</label>
-    <textarea type="text" class="form-control" id="sinopsis" placeholder="En 1998, en pleno auge de ..."
-      rows="4" name='sinopsis'>{{post.sinopsis}}</textarea>
+    <textarea type="text" class="form-control" id="sinopsis" placeholder="En 1998, en pleno auge de ..." rows="4"
+      name='sinopsis'>{{post.sinopsis}}</textarea>
 
     <label for="isbn">ISBN</label>
     <input type="text" class="form-control" id="isbn" name='isbn' value="{{post.isbn}}">
@@ -117,27 +119,29 @@
 
     <div class="space">
       <label for="optionRadios">
-        <input type="radio" name="optionRadios" id="optionsRadios1" value="Tapa dura" checked value="{{post.optionRadios}}"> Tapa dura
+        <input type="radio" name="optionRadios" id="optionsRadios1" value="Tapa dura" checked
+          value="{{post.optionRadios}}"> Tapa dura
       </label>
       <label>
-        <input type="radio" name="optionRadios" id="optionsRadios2" value="Tapa blanda" checked value="{{post.optionRadios}}"> Tapa blanda
+        <input type="radio" name="optionRadios" id="optionsRadios2" value="Tapa blanda" checked
+          value="{{post.optionRadios}}"> Tapa blanda
       </label>
     </div>
 
     <button type="submit" class="newButton">Guardar</button>
-    <a href="/" type="submit" class="newButton">Cancelar</a>    
+    <a href="/" type="submit" class="newButton">Cancelar</a>
 
   </form>
 
   <footer>
     <p>
-        © 2023 OLCHI - Todos los derechos reservados.
-        [Enlace a Política de Privacidad] | [Enlace a Términos y Condiciones]
-        Dirección: Universidad Rey Juan Carlos, Móstoles, España
-        Teléfono: +34 123 456 789
-        Email: info@olchi.com
+      © 2023 OLCHI - Todos los derechos reservados.
+      [Enlace a Política de Privacidad] | [Enlace a Términos y Condiciones]
+      Dirección: Universidad Rey Juan Carlos, Móstoles, España
+      Teléfono: +34 123 456 789
+      Email: info@olchi.com
     </p>
-</footer>
+  </footer>
 </body>
 
 </html>

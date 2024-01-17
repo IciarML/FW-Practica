@@ -1,6 +1,7 @@
+//Validacion de los campos del formulario
 const form = document.getElementById('forms');
 const titulo = document.getElementById('titulo');
-const autor = document.getElementById('autor'); 
+const autor = document.getElementById('autor');
 const sinopsis = document.getElementById('sinopsis');
 const precio = document.getElementById('precio');
 const imagen = document.getElementById('imagen');
@@ -10,12 +11,12 @@ const isbn = document.getElementById('isbn');
 const editorial = document.getElementById('editorial');
 const idioma = document.getElementById('idioma');
 
-form.addEventListener('submit', e=>{
+form.addEventListener('submit', e => {
     e.preventDefault();
     checkInputs();
 });
 
-function checkInputs(){
+function checkInputs() {
     const tituloValue = titulo.value.trim();
     const autorValue = autor.value.trim();
     const sinopsisValue = sinopsis.value.trim();
@@ -26,94 +27,96 @@ function checkInputs(){
     const idiomaValue = idioma.value.trim();
     const imagenValue = imagen.value.trim();
 
-    if(tituloValue == ''){
+    if (tituloValue == '') {
         setErrorFor(titulo, 'Error, tiene que indicar el título.');
     }
-    else if (!isTitle(tituloValue)){
+    else if (!isTitle(tituloValue)) {
         setErrorFor(titulo, 'Indique la primera letra en mayúscula.');
     }
-    else{
+    else {
         setSuccessFor(titulo);
     }
-    if(autorValue == ''){
+    if (autorValue == '') {
         setErrorFor(autor, 'Error, tiene que indicar el autor.');
     }
-    else{
+    else {
         setSuccessFor(autor);
     }
-    if(sinopsisValue == ''){
+    if (sinopsisValue == '') {
         setErrorFor(sinopsis, 'Error, tiene que indicar la sinopsis.');
     }
-    else{
+    else if (sinopsisValue.length < 50 || sinopsisValue.length > 500) {
+        setErrorFor(sinopsis, 'La sinopsis debe contener entre 50 y 500 caracteres.');
+    } else {
         setSuccessFor(sinopsis);
     }
-    if(precioValue == ''){
+    if (precioValue == '') {
         setErrorFor(precio, 'Error, tiene que indicar el precio.');
     }
-    else if(!isPrice(precioValue)){
+    else if (!isPrice(precioValue)) {
         setErrorFor(precio, 'Indique un número.');
     }
-    else{
+    else {
         setSuccessFor(precio);
     }
-    if(imagenValue == ''){
+    if (imagenValue == '') {
         setErrorFor(imagen, 'Error, tiene que indicar la imagen.');
     }
-    else if(!isURL(imagenValue)) {
+    else if (!isURL(imagenValue)) {
         setErrorFor(imagen, 'Indique un formato de URL válido.');
     }
-    else{
+    else {
         setSuccessFor(imagen);
     }
-    if(generoValue == ''){
+    if (generoValue == '') {
         setErrorFor(genero, 'Error, tiene que indicar el genero.');
     }
-    else{
+    else {
         setSuccessFor(genero);
     }
-    if(isbnValue == ''){
+    if (isbnValue == '') {
         setErrorFor(isbn, 'Error, tiene que indicar el isbn.');
     }
-    else{
+    else {
         setSuccessFor(isbn);
     }
-    if(editorialValue == ''){
+    if (editorialValue == '') {
         setErrorFor(editorial, 'Error, tiene que indicar la editorial.');
     }
-    else{
+    else {
         setSuccessFor(editorial);
     }
-    if(idiomaValue == ''){
+    if (idiomaValue == '') {
         setErrorFor(idioma, 'Error, tiene que indicar el idioma.');
     }
-    else{
+    else {
         setSuccessFor(idioma);
     }
-    if(tituloValue != '' && isTitle(tituloValue) && autorValue != '' && sinopsisValue != '' && isPrice(precioValue) && imagenValue != '' && isURL(imagenValue) && generoValue != '' && isbnValue != '' && editorialValue != '' && idiomaValue != ''){
+    if (tituloValue != '' && isTitle(tituloValue) && autorValue != '' && sinopsisValue != '' && isPrice(precioValue) && imagenValue != '' && isURL(imagenValue) && generoValue != '' && isbnValue != '' && editorialValue != '' && idiomaValue != '') {
         form.submit();
     }
 }
 
-function setErrorFor(input,message){
+function setErrorFor(input, message) {
     const formControl = input.parentElement;
     const small = formControl.querySelector('small');
     formControl.className = 'control error';
     small.innerText = message;
 }
 
-function setSuccessFor(input){
+function setSuccessFor(input) {
     const formControl = input.parentElement;
     formControl.className = 'control success';
 }
 
-function isURL(imagen){
+function isURL(imagen) {
     return /^(https?:\/\/)?([a-zA-Z0-9.-]+)(\.[a-zA-Z]{2,})(\/[a-zA-Z0-9-._~:/?#[\]@!$&'()*+,;=%]*)*$/.test(imagen);
 }
 
-function isTitle(titulo){
+function isTitle(titulo) {
     return /^[A-Z]/.test(titulo);
 }
 
-function isPrice(precio){
+function isPrice(precio) {
     return /^[0-9]+$/.test(precio);
 }

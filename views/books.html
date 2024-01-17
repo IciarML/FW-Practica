@@ -1,25 +1,27 @@
 <div id='books'>
-<div class="space">
-    <div class="container-fluid"> <!--Total width-->
-        <!--The rows must be contained in a container-->
-        <div class="row">
-            {{#posts}}
-            <div class="col-xs-3 col-sm-3 col-md-3">
-                <div class="book">
-                    <a href="post/{{id}}"><img src="{{imagen}}" class="img-fluid"></a>
-                    <!--Image-->
-                    <!--<a> creates a link to other internet pages, files...-->
-                    <!--class="img-fluid" is used to make an image flexible and adapt to the width of its container-->
-                    <hr> <!--Horizontal line-->
-                    <div> <!--Title-->
-                        <a class="book-title" href="post/{{id}}">
-                            {{titulo}}
-                        </a>
+    <div class="space">
+        <div class="container-fluid"> <!--Total width-->
+            <!--The rows must be contained in a container-->
+            <div class="row">
+                {{#posts}}
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="book">
+                        <a href="post/{{id}}"><img src="{{imagen}}" class="img-fluid"></a>
+                        <!--Image-->
+                        <!--<a> creates a link to other internet pages, files...-->
+                        <!--class="img-fluid" is used to make an image flexible and adapt to the width of its container-->
+                        <hr> <!--Horizontal line-->
+                        <div> <!--Title-->
+                            <a class="book-title" href="post/{{id}}">
+                                {{titulo}}
+                            </a>
+                        </div>
+                        <div class="book-author">{{autor}}</div> <!--Author-->
+                        <div class="book-price">{{precio}} €</div> <!--Price-->
                     </div>
-                    <div class="book-author">{{autor}}</div> <!--Author-->
-                    <div class="book-price">{{precio}} €</div> <!--Price-->
                 </div>
+                {{/posts}}
             </div>
-        
-{{/posts}}
+        </div>
+    </div>
 </div>
