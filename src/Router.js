@@ -93,25 +93,29 @@ router.get('/availableBuscar', (req, res) => {
     res.json(response);
 });
 
-//Animación
-router.get('/index',(req,res)=> {
+//Animacion
+router.get('/index', (req, res) => {
     res.render('index');
-})
+});
 
 //Valoraciones
-/*router.post('/saveRandom', (req, res) => {
+router.post('/saveRandom', (req, res) => {
 
     let info = req.body.key;
 
     let response = {
-        key: info,
-        value: Math.ceil(Math.random() * 100)
+        key: info
     }
 
     res.json(response);
-});*/
+});
 
-
+router.get('/e', (req, res) => {
+    res.render('e');
+});
+router.get('/busqueda', (req, res) => {
+    res.render('busqueda');
+});
 /*let existingNames = [ 
     {name:'la biblioteca de medianoche', image: '/Photos/Image8.jpg'},
     {name: 'la fundacion', image: '/Photos/Image6.jpg' },

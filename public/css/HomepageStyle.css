@@ -416,3 +416,7 @@ footer {
     padding: 7px 7px; 
     margin: 30px auto;
 }
+
+.no-results{
+    color: rgba(26, 129, 213, 0.997);
+}

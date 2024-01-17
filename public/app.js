@@ -19,7 +19,7 @@ async function loadMore(){
 }
 
 //Buscador
-async function checkBuscarAvailability() {
+async function checkBuscarAvailability(){
     //Paso 1: Obtener el elemento de entrada con el id 'buscar'
     let buscarInput = document.getElementById('buscar');
     //Paso 2: Obtener el valor en minúsculas del campo de entrada de búsqueda
@@ -47,11 +47,13 @@ async function checkBuscarAvailability() {
     messageDiv.innerHTML = message;
 }
 
-/*           NO FUNCIONA POR AHORA
-async function generateRandom(){ //para subir las valoraciones con ajax
+//Valoraciones
+async function generateRandom(){
 
-    const key = Math.ceil(Math.random() * 100)
+    const key = document.getElementById('commentInput').value
 
+    console.log('Sending key:', key);
+    
     const response = await fetch(`/saveRandom`, {
         method: "POST",
         headers: {
@@ -63,148 +65,13 @@ async function generateRandom(){ //para subir las valoraciones con ajax
     });
 
     const info = await response.json();
-  
+
     const content = document.getElementById("content");
 
     const newRow = document.createElement("tr")
     const cell1 = document.createElement("td")
-    cell1.textContent = info.key
-    const cell2 = document.createElement("td")
-    cell2.textContent = info.value
+    cell1.textContent = key
     newRow.appendChild(cell1)
-    newRow.appendChild(cell2)
     content.appendChild(newRow);
-
 }
 
-async function newBook(){ //para hacer post a los libros
-
-}*/
-
-//Valoraciones
-async function valoraciones(){
-let data = {
-    nombre: document.getElementById("nombre"),
-    comentario: document.getElementById("comentario"),
-    estrellas: document.getElementById("estrellas")
-  }
-}  
-
-//Animacion
-gsap.registerPlugin(ScrollTrigger);
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    const sections = gsap.utils.toArray('section');
-
-    let scrollTween = gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '.wrapper',
-            pin: true,
-            scrub: 0.5,
-            snap: 1 / (sections.length - 1),
-            start: 'top top',
-            end: 3000,
-        }
-    })
-
-    gsap.to('.logo', {
-        fontSize: '2.5rem',
-        top: '4rem',
-        scrollTrigger: {
-            trigger: '.logo',
-            start: 'top top',
-            end: 1500,
-            scrub: 0.5,
-        }
-    })
-
-    gsap.to('.line', {
-        height: '10rem',
-        scrollTrigger: {
-            trigger: '.line',
-            scrub: 0.5,
-            start: 'center center',
-            end: 2000,
-        }
-    })
-
-    document.querySelectorAll('.character').forEach(el => {
-
-        gsap.to(el.querySelector('.caption'), {
-            x: 0,
-            y: 0,
-            scrollTrigger: {
-                containerAnimation: scrollTween,
-                trigger: el.querySelector('.caption'),
-                start: 'top bottom',
-                end: '+=1000',
-                scrub: 0.5,
-            }
-        })
-
-        gsap.to(el.querySelector('.quote'), {
-            y: 0,
-            ease: 'none',
-            scrollTrigger: {
-                containerAnimation: scrollTween,
-                trigger: el.querySelector('.quote'),
-                start: 'top bottom',
-                end: '+=20%',
-                scrub: 0.5,
-            }
-        })
-
-        gsap.to(el.querySelector('.nickname'), {
-            y: 0,
-            ease: 'none',
-            scrollTrigger: {
-                containerAnimation: scrollTween,
-                trigger: el.querySelector('.nickname'),
-                start: 'top bottom',
-                end: '+=10%',
-                scrub: 0.5,
-            }
-        })
-
-        gsap.to(el.querySelector('.block'), {
-            x: 0,
-            ease: 'none',
-            scrollTrigger: {
-                containerAnimation: scrollTween,
-                trigger: el.querySelector('.block'),
-                start: 'top bottom',
-                end: '+=' + window.innerWidth,
-                scrub: 0.5,
-            }
-        })
-
-        gsap.to(el.querySelector('img'), {
-            y: 0,
-            ease: 'none',
-            scrollTrigger: {
-                containerAnimation: scrollTween,
-                trigger: el.querySelector('img'),
-                start: 'top bottom',
-                end: '+=50%',
-                scrub: 0.5,
-            }
-        })
-
-        gsap.to(el.querySelector('.huge-text'), {
-            y: 0,
-            ease: 'none',
-            scrollTrigger: {
-                containerAnimation: scrollTween,
-                trigger: el.querySelector('.huge-text'),
-                start: 'top bottom',
-                end: '+=100%',
-                scrub: 0.5,
-            }
-        })
-
-    })
-
-})
