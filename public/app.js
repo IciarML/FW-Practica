@@ -45,3 +45,45 @@ async function generateRandom(){
     newRow.appendChild(cell1)
     content.appendChild(newRow);
 }
+
+//Filtro
+function buscar() {
+    //Obtener el valor del campo de búsqueda
+    var query = document.getElementById('busqueda').value.toLowerCase();
+
+    var elementos = [
+      { titulo: "HARRY POTTER COLECCIÓN COMPLETA"},
+      { titulo: "THE BELL JAR"},
+      { titulo: "RETORNO DE LAS ESTRELLAS"},
+      { titulo: "INVISIBLE"},
+      { titulo: "HEARTSTOPPER 1. DOS CHICOS JUNTOS"},
+      { titulo: "LA FUNDACIÓN"},
+      { titulo: "LOBEZNO: EL VIEJO LOGAN"},
+      { titulo: "LA BIBLIOTECA DE LA MEDIA NOCHE"},
+      { titulo: "MONET: THE TRIUMPH OF IMPRESSIONISM"},
+      { titulo: "EIGHTEEN"},
+      { titulo: "VEINTE MIL LEGUAS DE VIAJE SUBMARINO"},
+      { titulo: "LOS PACIENTES DEL DOCTOR GARCÍA"}
+    ];
+
+    //Filtrar los elementos que coinciden con la consulta
+    var resultados = elementos.filter(function(elemento) {
+      return elemento.titulo.toLowerCase().includes(query);
+    });
+
+    //Mostrar los resultados
+    mostrarResultados(resultados);
+  }
+
+  function mostrarResultados(resultados) { //HTML para mostrar los resultados
+    var resultadosHTML = '<ul>';
+
+    resultados.forEach(function(resultado) {
+    resultadosHTML += '<li>' + resultado.titulo + '</li> <br>';
+    });
+
+    resultadosHTML += '</ul>';
+
+    //Mostrar los resultados en el elemento con id "resultados"
+    document.getElementById('resultados').innerHTML = resultadosHTML;
+  }
