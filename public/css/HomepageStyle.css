@@ -420,3 +420,10 @@ footer {
 .no-results{
     color: rgba(26, 129, 213, 0.997);
 }
+
+.results{
+    display: inline-block;
+    min-width: 200px;
+    margin-left: 520px;
+    margin-right: 500px;
+}
