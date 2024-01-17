@@ -18,35 +18,6 @@ async function loadMore(){
     loadMoreRequests++;
 }
 
-//Buscador
-async function checkBuscarAvailability(){
-    //Paso 1: Obtener el elemento de entrada con el id 'buscar'
-    let buscarInput = document.getElementById('buscar');
-    //Paso 2: Obtener el valor en minúsculas del campo de entrada de búsqueda
-    let buscar = buscarInput.value.toLowerCase(); //convierte los nombres a minusculas para no hacer distinciones
-    //Paso 3: Realizar una solicitud asíncrona al punto final del servidor '/availableBuscar' con el término de búsqueda como parámetro de consulta
-    const response = await fetch(`/availableBuscar?buscar=${buscar}`);
-    //Paso 4: Analizar la respuesta JSON recibida del servidor
-    const responseObj = await response.json();
-    //Paso 5: Crear un mensaje en función del estado de disponibilidad
-    let message = responseObj.available? 
-        '<p>No encontrado</p>':
-        '<p>Encontrado</p>';
-        /*
-        IDEAS PARA EL BUSCADOR
-        if (responseObj.available) {
-            //<p>No encontrado</p>
-        } else { 
-            //<p>encontrado</p>
-        }  
-        */
-        
-    //Paso 6: Obtener el elemento HTML con el id 'message'
-    const messageDiv = document.getElementById('message');
-    //Paso 7: Actualizar el contenido del elemento 'message' con el mensaje generado
-    messageDiv.innerHTML = message;
-}
-
 //Valoraciones
 async function generateRandom(){
 
@@ -74,4 +45,3 @@ async function generateRandom(){
     newRow.appendChild(cell1)
     content.appendChild(newRow);
 }
-

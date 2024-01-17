@@ -1,23 +1,76 @@
+//Buscador
 const products = [
     {
       productName: "HARRY POTTER",
-      price: 15,
+      author: "J.K. Rowling",
+      price: 80.68,
       img: "/Photos/Imagen1.png",
     },
     {
       productName: "THE BELL JAR",
-      price: 20,
+      author: "Sylvia Plath",
+      price: 11.18,
       img: "/Photos/Image2.jpg",
     },
     {
       productName: "RETORNO DE LAS ESTRELLAS",
-      price: 30,
+      author: "Stanisław Lem",
+      price: 13.77,
       img: "/Photos/Image3.jpg",
     },
     {
       productName: "INVISIBLE",
-      price: 40,
+      author: "Eloy Moreno",
+      price: 15.15,
       img: "/Photos/Image4.jpg",
+    },
+    {
+      productName: "HEARTSTOPPER 1. DOS CHICOS JUNTOS",
+      author: "Alice Oseman",
+      price: 15.15,
+      img: "/Photos/Image5.jpg",
+    },
+    {
+      productName: "LA FUNDACIÓN",
+      author: "Antonio Buero Vallejo",
+      price: 9.45,
+      img: "/Photos/Image6.jpg",
+    },
+    {
+      productName: "LOBEZNO: EL VIEJO LOGAN",
+      author: "Mark Millar, Steve Mcniven",
+      price: 20.85,
+      img: "/Photos/Image7.jpg",
+    },
+    {
+      productName: "LA BIBLIOTECA DE LA MEDIA NOCHE",
+      author: "Matt Haig",
+      price: 21.37,
+      img: "/Photos/Image8.jpg",
+    },
+    {
+      productName: "MONET: THE TRIUMPH OF IMPRESSIONISM",
+      author: "Daniel Wildenstein",
+      price: 15.20,
+      img: "/Photos/Image9.jpg",
+    },
+    {
+      productName: "EIGHTEEN",
+      author: "Alberto Ramos",
+      price: 12.25,
+      img: "/Photos/Image10.jpg",
+    },
+    {
+      productName: "VEINTE MIL LEGUAS DE VIAJE SUBMARINO",
+      author: "Julio Verne",
+      price: 14.96,
+      img: "/Photos/Image11.jpg",
+    },
+    {
+      productName: "LOS PACIENTES DEL DOCTOR GARCÍA",
+      author: "Almudena Grandes",
+      price: 21.75,
+      img: "/Photos/Image12.jpg",
     },
   ];
   const shopContent = document.getElementById("shopContent");
@@ -25,44 +78,49 @@ const products = [
   const noResults = document.getElementById("noResults");
   
   const displayProducts = (productList) => {
-    shopContent.innerHTML = "";
-  
-    if (productList.length === 0) {
-      noResults.style.display = "block";
-    } else {
-      productList.forEach((product) => {
+  shopContent.innerHTML = "";
+
+  if (productList.length === 0) {
+    noResults.style.display = "block";
+  } else {
+    for (let i = 0; i < productList.length; i += 4) {
+      const group = document.createElement("div");
+      group.className = "product-group";
+
+      for (let j = i; j < i + 4 && j < productList.length; j++) {
+        const product = productList[j];
         const content = document.createElement("div");
         content.className = "card-products";
         content.innerHTML = `
-            <div id='books'>
+          <div id='books'>
             <div class="space">
-                <div class="container-fluid"> <!--Total width-->
-                    <!--The rows must be contained in a container-->
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                            <div class="book">
-                              <a href="post/{{id}}"><img src="${product.img}" class="img-fluid" id="book-image"></a>
-                                <!--Image-->
-                                <!--class="img-fluid" is used to make an image flexible and adapt to the width of its container-->
-                                <hr> <!--Horizontal line-->
-                                <div> <!--Title-->
-                                    <a class="book-title" id="book-title" href="post/{{id}}">
-                                    ${product.productName}
-                                    </a>
-                                </div>
-                                <div class="book-author">{{autor}}</div> <!--Author-->
-                                <div class="book-price">${product.price} €</div> <!--Price-->
-                            </div>
-                            <ul id="results" class="results"></ul>
-                        </div>
+              <div class="container-fluid">
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                  <div class="book">
+                    <a href="post/{{id}}"><img src="${product.img}" class="img-fluid" id="book-image"></a>
+                    <hr>
+                    <div>
+                      <a class="book-title" id="book-title" href="post/{{id}}">
+                        ${product.productName}
+                      </a>
+                    </div>
+                    <div class="book-author">${product.author}</div>
+                    <div class="book-price">${product.price} €</div>
+                  </div>
+                  <ul id="results" class="results"></ul>
                 </div>
+              </div>
             </div>
-            </div>
-            `;
-        shopContent.append(content);
-      });
-      noResults.style.display = "none";
+          </div>
+        `;
+        group.appendChild(content);
+      }
+
+      shopContent.appendChild(group);
     }
-  };
+    noResults.style.display = "none";
+  }
+};
   
   const handleSearch = () => {
     const searchTerm = searchInput.value.toLowerCase();
