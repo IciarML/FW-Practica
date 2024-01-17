@@ -427,3 +427,14 @@ footer {
     margin-left: 520px;
     margin-right: 500px;
 }
+
+
+.card-products-container {
+    margin: 10vh auto;
+    text-align: center;
+  }
+.card-products {
+    display: inline-block;
+    text-align: center;
+    margin: 0 30px;
+  }

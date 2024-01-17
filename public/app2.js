@@ -72,6 +72,12 @@ const products = [
     price: 21.75,
     img: "/Photos/Image12.jpg",
   },
+  {
+    productName: "EJEMPLO",
+    author: "s",
+    price: 45,
+    img: "https://www.aulavirtual.urjc.es/moodle/pluginfile.php/12242909/mod_resource/content/1/SQL.map.jfif",
+  },
 ];
 const shopContent = document.getElementById("shopContent");
 const searchInput = document.getElementById("searchInput");
@@ -81,17 +87,12 @@ const displayProducts = (productList) => {
   shopContent.innerHTML = "";
 
   if (productList.length === 0) {
-    noResults.style.display = "block";
+    noResults.style.display = "inline-block";
   } else {
     productList.forEach((product) => {
       const content = document.createElement("div");
       content.className = "card-products";
       content.innerHTML = `
-            <div id='books'>
-            <div class="space">
-                <div class="container-fluid"> <!--Total width-->
-                    <!--The rows must be contained in a container-->
-                        <div class="col-xs-3 col-sm-3 col-md-3">
                             <div class="book">
                               <a href="post/{{id}}"><img src="${product.img}" class="img-fluid" id="book-image"></a>
                                 <!--Image-->
@@ -104,12 +105,8 @@ const displayProducts = (productList) => {
                                 </div>
                                 <div class="book-author">${product.author}</div> <!--Author-->
                                 <div class="book-price">${product.price} €</div> <!--Price-->
+                            
                             </div>
-                            <ul id="results" class="results"></ul>
-                        </div>
-                </div>
-            </div>
-            </div>
             `;
       shopContent.append(content);
     });
